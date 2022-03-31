@@ -1,0 +1,2 @@
+rootProject.name='GoogleSignInDemo'
+include ':app'

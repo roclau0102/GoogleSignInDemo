@@ -30,12 +30,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private boolean showOneTapUI = true;
 
     private static final String TAG = "FUCK";
-    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Button button = findViewById(R.id.button);
+        button.setOnClickListener(this);
 
         String androidClientId = "1098155987904-ebg14scpmhtkihbeamajdm5ik88kp73j.apps.googleusercontent.com";
         String webClientId = "1098155987904-qacv95n47rvt453v3snvhs92g2bpfst5.apps.googleusercontent.com";   // use this, not android client id
@@ -54,9 +56,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 // Automatically sign in when exactly one credential is retrieved.
 //                .setAutoSelectEnabled(true)
                 .build();
-
-        button = findViewById(R.id.button);
-        button.setOnClickListener(this);
     }
 
     @Override
@@ -103,11 +102,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if (username != null) {
                         Log.d(TAG, "Got user name: " + username);
                     }
-                    if (password != null) {
-                        // Got a saved username and password. Use them to authenticate
-                        // with your backend.
-                        Log.d(TAG, "Got password: " + password);
-                    }
+//                    if (password != null) {
+//                        // Got a saved username and password. Use them to authenticate
+//                        // with your backend.
+//                        Log.d(TAG, "Got password: " + password);
+//                    }
                 } catch (ApiException e) {
                     // ...
                     switch (e.getStatusCode()) {
